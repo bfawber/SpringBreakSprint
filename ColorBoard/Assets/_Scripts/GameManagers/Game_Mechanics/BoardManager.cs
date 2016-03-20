@@ -34,6 +34,7 @@ public class BoardManager : MonoBehaviour {
                     spawnPoint = new Vector3((float)j, 0f, (float)i);
                     GameObject block = Instantiate(Gblock, spawnPoint, Quaternion.identity) as GameObject;
                     block.GetComponent<GameBlock>().block = new Block(i, j, Board.COLOR.WHITE);
+                    board.board[i][j] = block.GetComponent<GameBlock>().block;
                 }
             }
 
@@ -43,11 +44,6 @@ public class BoardManager : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	
 	}
 }

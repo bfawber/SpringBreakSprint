@@ -14,17 +14,18 @@ public class Board {
 
     public int BoardSize;
 
-    public Block[][] _board;
+    public Block[][] board;
 
     public Board(int BoardSize)
     {
         this.BoardSize = BoardSize;
-        this._board = new Block[this.BoardSize][];
+        this.board = new Block[this.BoardSize][];
 
         for (int i = 0; i < BoardSize; ++i)
         {
-            this._board[i] = new Block[this.BoardSize];
+            this.board[i] = new Block[this.BoardSize];
         }
+
     }
 
     public void InitializeBlocks()
@@ -34,7 +35,7 @@ public class Board {
         {
             for(int j = 0; j < BoardSize; ++j)
             {
-                _board[i][j] = new Block(i, j, COLOR.WHITE);
+                board[i][j] = new Block(i, j, COLOR.WHITE);
             }
         }
     }
