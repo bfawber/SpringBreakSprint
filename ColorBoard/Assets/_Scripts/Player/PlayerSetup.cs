@@ -4,13 +4,7 @@ using System.Collections;
 public class PlayerSetup : MonoBehaviour {
     
     public Board.COLOR PlayerColor;
-
-	// Use this for initialization
-	void Start () {
-
-        
-	}
-
+    
     public void initialize(int playerNumber)
     {
         switch (playerNumber)
