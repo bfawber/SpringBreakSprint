@@ -54,10 +54,11 @@ public class Board {
         
         for(int i = 0; i < boardShape.Length; ++i)
         {
+            startIndex = Random.Range(0, boardShape[i].Length - 1);
+            endIndex = Random.Range(startIndex, boardShape[i].Length - 1);
             for(int j = 0; j < boardShape[i].Length; ++j)
             {
-                startIndex = Random.Range(0, boardShape[i].Length - 1);
-                endIndex = Random.Range(startIndex, boardShape[i].Length);
+                
                 if(j < startIndex || j > endIndex)
                 {
                     boardShape[i][j] = 0;
@@ -72,83 +73,5 @@ public class Board {
 
         boardShape[0][0] = 1;
         BlockCount++;       
-    }
-
-    bool ValidBlock(int [][] shape, int[] pos)
-    {
-        int touchCount = 0;
-        
-        if(pos[0] < shape.Length - 1)
-        {
-            if(shape[pos[0]+1][pos[1]] == 1)
-            {
-                ++touchCount;
-            }
-        }
-        if(pos[1] < shape[pos[0]].Length - 1)
-        {
-            if(shape[pos[0]][pos[1]+1] == 1)
-            {
-                ++touchCount;
-            }
-        }
-
-        if(touchCount > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    void ValidateBoard()
-    {
-        float extraChance = Random.value;
-        for (int i = 0; i < boardShape.Length; ++i)
-        {
-            for (int j = 0; j < boardShape[i].Length; ++j)
-            {
-                if (boardShape[i][j] == 1)
-                {
-                    if (!ValidBlock(boardShape, new int[] { i, j }))
-                    {
-                        if (j < boardShape[i].Length - 1)
-                        {
-                            if (boardShape[i][j + 1] != 1)
-                            {
-                                boardShape[i][j + 1] = 1;
-                                BlockCount++;
-                                break;
-                            }
-                        }
-                        if (i < boardShape.Length - 1)
-                        {
-                            if (boardShape[i + 1][j] != 1)
-                            {
-                                boardShape[i + 1][j] = 1;
-                                BlockCount++;
-                                break;
-                            }
-                        }
-                        
-                        
-                    }
-                }
-                else
-                {
-                    if(extraChance < .2f)
-                    {
-                        boardShape[i][j] = 1;
-                    }
-                }
-            }
-        }
-
-        /*if (!isValid)
-        {
-            ValidateBoard();
-        }*/
     }
 }
