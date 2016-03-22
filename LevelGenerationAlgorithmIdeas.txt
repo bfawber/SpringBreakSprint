@@ -1,0 +1,3 @@
+For each row, choose 2 points. 
+Fill the grid with 1's from point 1 to point 2.
+
