@@ -49,29 +49,29 @@ public class Board {
     
     void GenerateShape()
     {
-        float chance;
+        int startIndex;
+        int endIndex;
         
         for(int i = 0; i < boardShape.Length; ++i)
         {
-            chance = Random.value;
             for(int j = 0; j < boardShape[i].Length; ++j)
             {
-                if(chance >= .5)
+                startIndex = Random.Range(0, boardShape[i].Length - 1);
+                endIndex = Random.Range(startIndex, boardShape[i].Length);
+                if(j < startIndex || j > endIndex)
                 {
-                    boardShape[i][j] = 1;
-                    BlockCount++;
+                    boardShape[i][j] = 0;
                 }
                 else
                 {
-                    boardShape[i][j] = 0;
+                    boardShape[i][j] = 1;
+                    BlockCount++;
                 }
             }
         }
 
         boardShape[0][0] = 1;
-
-        ValidateBoard();
-        
+        BlockCount++;       
     }
 
     bool ValidBlock(int [][] shape, int[] pos)

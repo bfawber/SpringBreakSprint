@@ -11,6 +11,7 @@ public class GameBlock : MonoBehaviour {
     {
         this.renderer = GetComponent<MeshRenderer>();
         this.renderer.material.color = BoardManager.Instance.ColorTranslator[block.getColor()];
+        this.gameObject.tag = "floor";
         
     }
 

@@ -41,16 +41,4 @@ public class InputManager : MonoBehaviour {
             return Input.GetAxisRaw("Fire1");
         }
     }
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
