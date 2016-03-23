@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
-using System.Threading;
 
 public class Board {
 
@@ -174,7 +172,6 @@ public class Board {
     int[][] GeneticGenerator(int[][] shape)
     {
         int populationSize = 20;
-        float desiredScore = .05f;
         float[] scores = new float[populationSize];
         int[][][] population = new int[populationSize][][];
 
@@ -270,7 +267,6 @@ public class Board {
     {
         int[][][] sortedPopulation = new int[population.Length][][];
         float[] sortedScores = new float[scores.Length];
-        int[][][] c = null;
         float max = -1;
         int index = 0;
 
